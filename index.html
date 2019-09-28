@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Reto 1 Movies</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      .container {
+        display: grid;
+        grid-gap: 0;
+        height: 100vh;
+        grid-template-columns: 10% 90%;
+        grid-template-rows: 10% 90%;
+        grid-template-areas:
+          "navbar navbar"
+          "lateral moviescontainer";
+      }
+
+      .navbar {
+        grid-area: navbar;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+      }
+
+      .barra-busqueda {
+        border-radius: 5px;
+        border: 1px solid gray;
+        padding: 3px;
+        width: 50%;
+        justify-self: center;
+      }
+
+      .userAccount {
+        display: flex;
+        align-items: center;
+      }
+
+      .avatar {
+        max-width: 40px;
+      }
+
+      .lateral {
+        grid-area: lateral;
+        background: #fd6162;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lateral-item {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .config {
+        justify-self: end;
+      }
+
+      .movies-container {
+        grid-area: moviescontainer;
+        display: grid;
+        overflow: auto;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+
+        grid-column-gap: 16px;
+        grid-row-gap: 10px;
+        padding: 15px;
+        grid-auto-rows: max-content;
+      }
+
+      .movies-category {
+        grid-column: 1 / -1;
+        margin: 0;
+      }
+
+      .movie {
+        cursor: pointer;
+        position: relative;
+        display: block;
+      }
+
+      .movie-image {
+        margin: 0;
+      }
+
+      .movie-image img {
+        width: 100%;
+        vertical-align: top;
+      }
+
+      .movie-overlay {
+        background: rgba(255, 0, 0, 0.6);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: initial;
+        color: white;
+        height: 50%;
+      }
+
+      .movie-title {
+        font-size: 1em;
+        margin: 5px 5px 10px 5px;
+      }
+
+      .movie-description {
+        font-size: 0.7em;
+        margin: 0 5px 5px 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      i {
+        font-size: 1.5em;
+        margin: 0;
+        color: white;
+      }
+
+      h5 {
+        margin: 0;
+        color: white;
+        font-size: 1em;
+      }
+      h4 {
+        margin: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        h5 {
+          font-size: 0.75em;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .userName {
+          display: none;
+        }
+
+        h5 {
+          font-size: 0.5em;
+        }
+
+        .movies-container {
+          grid-template-columns: repeat(2, 120px);
+        }
+
+        .movie-title {
+          font-size: 0.8em;
+        }
+
+        .movie-description {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <img src="Imagenes/movi-icon.png" alt="" />
+        <input
+          class="barra-busqueda"
+          type="text"
+          placeholder="Busca tu peli, actor, actriz o director favorito"
+        />
+        <div class="userAccount">
+          <span class="userName">Pikachu</span>
+          <img class="avatar" src="Imagenes/pika_avatar.png" alt="" />
+        </div>
+      </div>
+
+      <div class="lateral">
+        <figure class="lateral-item">
+          <i class="icon-home"></i>
+          <h5>Home</h5>
+        </figure>
+        <figure class="lateral-item">
+          <i class="icon-trend"></i>
+          <h5>Trending</h5>
+        </figure>
+        <figure class="lateral-item">
+          <i class="icon-likes"></i>
+          <h5>Más likes</h5>
+        </figure>
+        <figure class="lateral-item config">
+          <i class="icon-config"></i>
+          <h5>Ajustes</h5>
+        </figure>
+      </div>
+
+      <div class="movies-container">
+        <div class="movies-category">
+          <h4>Ahora en el Cine</h4>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por
+              Netflix.fewfadsafaaskfdsakfkdsanfjknjkanejkwnafjknejkafnjkenajkfnjkeawnfjkaew
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+
+        <div class="movies-category">
+          <h4>Aclamadas por la crítica</h4>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things2.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things2.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things2.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+
+        <div class="movies-category">
+          <h4>No te debes perder</h4>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things3.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things3.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things3.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+        <div class="movie">
+          <figure class="movie-image">
+            <img src="Imagenes/Stranger-Things.jpg" alt="" class="" />
+          </figure>
+          <span class="movie-overlay">
+            <span class="movie-title">Stranger Things</span><br />
+            <p class="movie-description">
+              Es una serie web estadounidense de suspenso y ciencia ficción
+              coproducida y distribuida por Netflix.
+            </p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
